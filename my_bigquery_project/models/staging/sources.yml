@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: raw_data                # logical name you'll use in dbt
+    database: your-gcp-project-id # your BigQuery project ID
+    schema: your_dataset_name     # your BigQuery dataset name
+    tables:
+      - name: customers           # table name in BigQuery
+        description: "Raw customers table"
+        columns:
+          - name: id
+            description: "Primary key"
+      - name: orders
+        description: "Raw orders table"
+        columns:
+          - name: id
+            description: "Primary key"
+          - name: customer_id
+            description: "Foreign key to customers"
